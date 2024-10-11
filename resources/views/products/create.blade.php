@@ -30,6 +30,7 @@
                                     name="product_image"
                                     class="form-control @error('product_image') is-invalid @enderror"
                                     onchange="previewImage();"
+                                    required
                                 >
 
                                 @error('product_image')
@@ -59,11 +60,12 @@
                             <div class="card-body">
                                 <div class="row row-cards">
                                     <div class="col-md-12">
-
-                                        <x-input name="name"
-                                                 id="name"
-                                                 placeholder="Product name"
-                                                 value="{{ old('name') }}"
+                                        <x-input 
+                                            name="name"
+                                            id="name"
+                                            placeholder="Product name"
+                                            value="{{ old('name') }}"
+                                            required
                                         />
                                     </div>
 
@@ -75,9 +77,11 @@
                                             </label>
 
                                             @if ($categories->count() === 1)
-                                                <select name="category_id" id="category_id"
-                                                        class="form-select @error('category_id') is-invalid @enderror"
-                                                        readonly
+                                                <select 
+                                                    name="category_id" 
+                                                    id="category_id"
+                                                    class="form-select @error('category_id') is-invalid @enderror"
+                                                    readonly
                                                 >
                                                     @foreach ($categories as $category)
                                                         <option value="{{ $category->id }}" selected>
@@ -86,15 +90,18 @@
                                                     @endforeach
                                                 </select>
                                             @else
-                                                <select name="category_id" id="category_id"
-                                                        class="form-select @error('category_id') is-invalid @enderror"
+                                                <select 
+                                                    name="category_id" 
+                                                    id="category_id"
+                                                    class="form-select @error('category_id') is-invalid @enderror"
+                                                    required
                                                 >
-                                                    <option selected="" disabled="">
+                                                    <option selected disabled>
                                                         Select a category:
                                                     </option>
 
                                                     @foreach ($categories as $category)
-                                                        <option value="{{ $category->id }}" @if(old('category_id') == $category->id) selected="selected" @endif>
+                                                        <option value="{{ $category->id }}" @if(old('category_id') == $category->id) selected @endif>
                                                             {{ $category->name }}
                                                         </option>
                                                     @endforeach
@@ -117,9 +124,11 @@
                                             </label>
 
                                             @if ($units->count() === 1)
-                                                <select name="category_id" id="category_id"
-                                                        class="form-select @error('category_id') is-invalid @enderror"
-                                                        readonly
+                                                <select 
+                                                    name="unit_id" 
+                                                    id="unit_id"
+                                                    class="form-select @error('unit_id') is-invalid @enderror"
+                                                    readonly
                                                 >
                                                     @foreach ($units as $unit)
                                                         <option value="{{ $unit->id }}" selected>
@@ -128,15 +137,20 @@
                                                     @endforeach
                                                 </select>
                                             @else
-                                                <select name="unit_id" id="unit_id"
-                                                        class="form-select @error('unit_id') is-invalid @enderror"
+                                                <select 
+                                                    name="unit_id" 
+                                                    id="unit_id"
+                                                    class="form-select @error('unit_id') is-invalid @enderror"
+                                                    required
                                                 >
-                                                    <option selected="" disabled="">
+                                                    <option selected disabled>
                                                         Select a unit:
                                                     </option>
 
                                                     @foreach ($units as $unit)
-                                                        <option value="{{ $unit->id }}" @if(old('unit_id') == $unit->id) selected="selected" @endif>{{ $unit->name }}</option>
+                                                        <option value="{{ $unit->id }}" @if(old('unit_id') == $unit->id) selected @endif>
+                                                            {{ $unit->name }}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                             @endif
@@ -150,52 +164,62 @@
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <x-input type="number"
-                                                 label="Buying Price"
-                                                 name="buying_price"
-                                                 id="buying_price"
-                                                 placeholder="0"
-                                                 value="{{ old('buying_price') }}"
+                                        <x-input 
+                                            type="number"
+                                            label="Buying Price"
+                                            name="buying_price"
+                                            id="buying_price"
+                                            placeholder="0"
+                                            value="{{ old('buying_price') }}"
+                                            required
                                         />
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <x-input type="number"
-                                                 label="Selling Price"
-                                                 name="selling_price"
-                                                 id="selling_price"
-                                                 placeholder="0"
-                                                 value="{{ old('selling_price') }}"
+                                        <x-input 
+                                            type="number"
+                                            label="Selling Price"
+                                            name="selling_price"
+                                            id="selling_price"
+                                            placeholder="0"
+                                            value="{{ old('selling_price') }}"
+                                            required
                                         />
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <x-input type="number"
-                                                 label="Quantity"
-                                                 name="quantity"
-                                                 id="quantity"
-                                                 placeholder="0"
-                                                 value="{{ old('quantity') }}"
+                                        <x-input 
+                                            type="number"
+                                            label="Quantity"
+                                            name="quantity"
+                                            id="quantity"
+                                            placeholder="0"
+                                            value="{{ old('quantity') }}"
+                                            required
                                         />
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <x-input type="number"
-                                                 label="Quantity Alert"
-                                                 name="quantity_alert"
-                                                 id="quantity_alert"
-                                                 placeholder="0"
-                                                 value="{{ old('quantity_alert') }}"
+                                        <x-input 
+                                            type="number"
+                                            label="Quantity Alert"
+                                            name="quantity_alert"
+                                            id="quantity_alert"
+                                            placeholder="0"
+                                            value="{{ old('quantity_alert') }}"
+                                            required
                                         />
                                     </div>
 
                                     <div class="col-sm-6 col-md-6">
-                                        <x-input type="number"
-                                                 label="Tax"
-                                                 name="tax"
-                                                 id="tax"
-                                                 placeholder="0"
-                                                 value="{{ old('tax') }}"
+                                        <x-input 
+                                            type="number"
+                                            label="Tax"
+                                            name="tax"
+                                            id="tax"
+                                            placeholder="0"
+                                            value="{{ old('tax') }}"
+                                            required
                                         />
                                     </div>
 
@@ -205,8 +229,10 @@
                                                 {{ __('Tax Type') }}
                                             </label>
 
-                                            <select name="tax_type" id="tax_type"
-                                                    class="form-select @error('tax_type') is-invalid @enderror"
+                                            <select 
+                                                name="tax_type" 
+                                                id="tax_type"
+                                                class="form-select @error('tax_type') is-invalid @enderror"
                                             >
                                                 @foreach(\App\Enums\TaxType::cases() as $taxType)
                                                 <option value="{{ $taxType->value }}" @selected(old('tax_type') == $taxType->value)>
@@ -229,12 +255,13 @@
                                                 {{ __('Notes') }}
                                             </label>
 
-                                            <textarea name="notes"
-                                                      id="notes"
-                                                      rows="5"
-                                                      class="form-control @error('notes') is-invalid @enderror"
-                                                      placeholder="Product notes"
-                                            ></textarea>
+                                            <textarea 
+                                                name="notes"
+                                                id="notes"
+                                                rows="5"
+                                                class="form-control @error('notes') is-invalid @enderror"
+                                                placeholder="Product notes"
+                                            >{{ old('notes') }}</textarea>
 
                                             @error('notes')
                                             <div class="invalid-feedback">
