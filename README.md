@@ -86,9 +86,3 @@ and password:
 password
 
 ```
-
-## 🚀 Config
-
-1. **Config Chart**
-
-    Open file `./config/cart.php`. You can set a tax, format number, etc.
